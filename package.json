@@ -1,0 +1,54 @@
+{
+  "name": "doctrex-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoctrEx/doctrEx-backend-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DoctrEx/doctrEx-backend-api/issues"
+  },
+  "homepage": "https://github.com/DoctrEx/doctrEx-backend-api#readme",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.10",
+    "docxtemplater": "^3.42.7",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "html-pdf": "^3.0.1",
+    "html-to-docx": "^1.8.0",
+    "html-to-text": "^9.0.5",
+    "jsonwebtoken": "^9.0.0",
+    "lodash": "^4.17.21",
+    "lumie": "^0.1.2",
+    "mammoth": "^1.6.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^2.0.22",
+    "onesignal-node": "^3.4.0",
+    "puppeteer": "^21.6.1",
+    "sequelize": "^6.27.0",
+    "socket.io": "^4.5.4",
+    "uid": "^2.0.2",
+    "uuid": "^9.0.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.5.2"
+  }
+}
