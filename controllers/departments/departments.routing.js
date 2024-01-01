@@ -1,4 +1,4 @@
-const { listDepartments, createDepartment } = require("./departments.action");
+const { listDepartments, createDepartment,associateUserDepartment } = require("./departments.action");
 const { validateToken, authorize } = require("../../helpers/authorize");
 
 module.exports = {
@@ -9,6 +9,13 @@ module.exports = {
     },
     post: {
       action: [validateToken, createDepartment],
+      level: "public",
+    },
+  },
+  "/associate": {
+   
+    post: {
+      action: [validateToken, associateUserDepartment],
       level: "public",
     },
   },
