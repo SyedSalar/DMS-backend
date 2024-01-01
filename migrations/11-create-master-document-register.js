@@ -12,15 +12,20 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
       },
+      mdrCode: { type: Sequelize.STRING },
       companyId: {
         type: Sequelize.INTEGER,
       },
       departmentId: {
         type: Sequelize.INTEGER,
       },
+      departmentName: {
+        type: Sequelize.STRING,
+      },
       projectId: {
         type: Sequelize.INTEGER,
       },
+      projectCode: { type: Sequelize.STRING },
       authorId: {
         type: Sequelize.INTEGER,
       },

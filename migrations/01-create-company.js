@@ -18,6 +18,9 @@ module.exports = {
       industry: {
         type: Sequelize.STRING,
       },
+      documentNumberFormat: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

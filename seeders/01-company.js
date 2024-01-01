@@ -8,6 +8,7 @@ module.exports = {
         {
           id: 1,
           name: "Zentrum",
+          documentNumberFormat: "projectCode-departName-mdrCode-docNumber",
           details:
             "Zentrum is your go-to AI wizard, conjuring up mind-bending solutions with custom machine learning, NLP, and computer vision magic. Ethically wielding the AI wand, we're on a quest to supercharge businesses in healthcare, finance, e-commerce, and beyond.",
           createdAt: new Date(),

@@ -41,6 +41,10 @@
     "nodemailer": "^6.9.7",
     "nodemon": "^2.0.22",
     "onesignal-node": "^3.4.0",
+<<<<<<< HEAD
+=======
+    "papaparse": "^5.4.1",
+>>>>>>> 7bc30328623d716de78b68038c1a9a520d3f84da
     "puppeteer": "^21.6.1",
     "sequelize": "^6.27.0",
     "socket.io": "^4.5.4",

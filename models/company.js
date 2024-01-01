@@ -27,10 +27,20 @@ module.exports = (sequelize, DataTypes) => {
       industry: {
         type: DataTypes.STRING,
       },
+<<<<<<< HEAD
+=======
+      documentNumberFormat: {
+        type: DataTypes.STRING,
+      },
+>>>>>>> 7bc30328623d716de78b68038c1a9a520d3f84da
     },
     {
       sequelize,
       modelName: "company",
+<<<<<<< HEAD
+=======
+      freezeTableName: true,
+>>>>>>> 7bc30328623d716de78b68038c1a9a520d3f84da
     }
   );
   return Company;
