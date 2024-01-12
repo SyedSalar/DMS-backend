@@ -27,9 +27,9 @@ module.exports = (sequelize, DataTypes) => {
       industry: {
         type: DataTypes.STRING,
       },
-      documentNumberFormat: {
-        type: DataTypes.STRING,
-      },
+      // documentNumberFormat: {
+      //   type: DataTypes.STRING,
+      // },
     },
     {
       sequelize,

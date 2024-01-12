@@ -28,9 +28,10 @@ module.exports.checkDuplicateUsernameOrEmail = async (req, res, next) => {
 module.exports.createUser = async (req, res) => {
   try {
     const { body } = req;
+    console.log(body);
     const password = generateRandomPassword(10);
     body.password = bcrypt.hashSync(password, 8);
-    body.companyId = 1;
+   
     body.roleId = 2;
     const users = await UserModel.create(body);
     body.password = password;

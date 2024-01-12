@@ -9,7 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Users.belongsTo(models.company, {
+        foreignKey: 'companyId',
+        targetKey:'id',
+        onDelete: 'CASCADE', // You can adjust onDelete based on your requirements
+      });
     }
+    
   }
   Users.init(
     {
@@ -20,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       companyId: {
         type: DataTypes.INTEGER,
+     
       },
       roleId: {
         type: DataTypes.INTEGER,

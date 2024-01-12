@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const config = require("../../config/auth.config");
 const SystemLogModel = db.system_logs;
+const CompanyModel = db.company;
 
 //middlewares
 
@@ -29,18 +30,33 @@ module.exports.checkDuplicateUsernameOrEmail = async (req, res, next) => {
 module.exports.signup = async (req, res) => {
   try {
     const { body } = req;
+    const createdCompany = await CompanyModel.create(body);
+    
+    // Get the companyId from the createdCompany
+    const companyId = createdCompany.id;
     body.password = bcrypt.hashSync(req.body.password, 8);
-    body.companyId = 1;
     body.roleId = 1;
+    body.companyId=companyId;
     await UserModel.create(body);
+    const user = await UserModel.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+    const token = jwt.sign({ id: user.id }, config.secret, {
+      expiresIn: 1.577e8, // 24 hours
+    });
     await SystemLogModel.create({
       companyId: body.companyId,
       title: `${body?.firstName} ${body?.lastName} Signed Up`,
     });
-    res.status(200).send({ message: "USER REGISTERED" });
-  } catch {
-    console.log(err.message);
-    res.status(500).send({ message: err.message });
+    res.status(200).send({
+      user,
+      accessToken: token,
+    });
+  } catch(error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
   }
 };
 

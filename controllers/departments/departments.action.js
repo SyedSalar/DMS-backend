@@ -5,11 +5,32 @@ const DepartmentUserAssociation = db.department_user_associations;
 
 module.exports.createDepartment = async (req, res) => {
   try {
+    console.log('dept body',req.body);
+    console.log(req.body.title);
+    
+    if(Array.isArray(req.body.title)){
+      console.log(req.body.title.length);
+      var deptArray=req.body.title;
+     for (let index = 0; index < deptArray.length; index++) {
+
+      let element = deptArray[index];
+      console.log(element)
+      req.body.title=element
+      console.log(req.body.title);
+      console.log('check change',req.body);
+      await DepartmentModel.create(req?.body);
+      await SystemLogModel.create({
+        companyId: req?.body?.companyId,
+        title: `${req?.body?.authorName} Created Department ${req?.body?.title}`,
+      });
+    } }
+    else{
     await DepartmentModel.create(req?.body);
     await SystemLogModel.create({
       companyId: req?.body?.companyId,
       title: `${req?.body?.authorName} Created Department ${req?.body?.title}`,
     });
+  }
     return res.status(200).send({ message: "Departments Created" });
   } catch (err) {
     console.log(err.message);
