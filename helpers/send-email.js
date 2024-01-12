@@ -25,11 +25,7 @@ module.exports.sendEmail = async (body) => {
     // Setup email data
     console.log(body, "body");
     const mailOptions = {
-<<<<<<< HEAD
       from: "salar@gmail.com",
-=======
-      from: "hamzaakhtar105@gmail.com",
->>>>>>> 7bc30328623d716de78b68038c1a9a520d3f84da
       to: body?.email,
       subject: "Account Creation Notification",
       html: template(body),
