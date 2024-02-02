@@ -1,5 +1,8 @@
 const db = require("../../models/index");
 const DocumentModel = db.documents;
+const DepartmentModel = db.departments;
+const ProjectModel = db.projects;
+
 const MDRModel = db.master_document_registers;
 const DocumentPermssionModel = db.user_document_permissions;
 const SystemLogModel = db.system_logs;
@@ -140,6 +143,29 @@ module.exports.updateDocumentFormat = async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 };
+
+module.exports.getCodes = async (req, res) => {
+  try {
+    const company= await CompanyModel.findOne({
+      where:{ id: req?.query?.companyId },
+    })
+    const DepartmentCode = await DepartmentModel.findAll({
+      where:{ companyId: req?.query?.companyId },
+    })
+    const ProjectCode = await ProjectModel.findAll({
+      where:{ companyId: req?.query?.companyId },
+    })
+
+    if (company) {
+      const { documentNumberFormat } = company.dataValues;
+      res.status(200).send({ documentNumberFormat });
+    }     
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send({ message: err.message });
+  }
+};
+
 
 module.exports.exportMDRCsv = async (req, res) => {
   try {

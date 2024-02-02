@@ -8,15 +8,17 @@ module.exports.createDepartment = async (req, res) => {
     console.log('dept body',req.body);
     console.log(req.body.title);
     
-    if(Array.isArray(req.body.title)){
-      console.log(req.body.title.length);
+    if(Array.isArray(req.body.title) && Array.isArray(req.body.suffix)){
+      console.log(req.body.title.length,req.body.suffix.length);
       var deptArray=req.body.title;
+      var deptSuffix=req.body.suffix;
      for (let index = 0; index < deptArray.length; index++) {
-
+let mySuffix=deptSuffix[index];
       let element = deptArray[index];
       console.log(element)
       req.body.title=element
-      console.log(req.body.title);
+      req.body.suffix=mySuffix
+      console.log(req.body.title,req.body.suffix);
       console.log('check change',req.body);
       await DepartmentModel.create(req?.body);
       await SystemLogModel.create({

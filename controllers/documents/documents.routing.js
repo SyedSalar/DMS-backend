@@ -7,6 +7,7 @@ const {
   listPermission,
   updateDocumentFormat,
   exportMDRCsv,
+  getCodes,
 } = require("./documents.action");
 const { validateToken, authorize } = require("../../helpers/authorize");
 
@@ -71,5 +72,11 @@ module.exports = {
       action: [exportMDRCsv],
       level: "public",
     },
+  },
+  "/getCodes":{
+    get:{
+      action:[getCodes],
+      level:"public",
+    }
   },
 };
